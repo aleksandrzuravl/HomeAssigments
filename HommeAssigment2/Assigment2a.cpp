@@ -12,7 +12,7 @@ int main()
     
     
     char x;
-    for(int i = 0; i <= size - size/2; i++){
+    for(int i = 0; i < size - size/2; i++){
         x = lst[i];
         lst[i]= lst[size - 1 - i];
         lst[size - 1 - i] = x;
