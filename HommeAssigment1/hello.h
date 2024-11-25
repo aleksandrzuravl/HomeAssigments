@@ -1,18 +1,16 @@
 /*zhuravlev alexander st129760
     assigment 1, realization func
 */
-#include <iostream>
-using namespace std;
 
 
-void func(){
-    cout << "Hello, world" << endl;
-    while (true){
-        string name = "ooo";
-        cin >> name ;
-        cout << "Hello, " << name << endl;
-     }
-     return;   
-} 
+#ifndef HELLO_h
+#define HELLO_h
+
+
+namespace prj2
+{
+    void func();
+}
+#endif
 
 
