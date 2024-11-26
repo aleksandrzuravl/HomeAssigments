@@ -1,3 +1,6 @@
+/*zhuravlev alexander st129760
+    assigment 2a
+*/
 #include <iostream>
 #include <fstream>
 #include <filesystem>
@@ -12,7 +15,7 @@ int main()
     
     
     char x;
-    for(int i = 0; i < size - size/2; i++){
+    for(int i = 0; i < size/2; ++i){
         x = lst[i];
         lst[i]= lst[size - 1 - i];
         lst[size - 1 - i] = x;
@@ -24,10 +27,10 @@ int main()
      outfile.write((char*)&lst,sizeof(lst));
      
      
-     infile.close
-     outfile.close
+     infile.close;
+     outfile.close;
      
-     delete[lst]
+     delete[lst];
         
         
 }
