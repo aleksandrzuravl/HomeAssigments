@@ -1,3 +1,6 @@
+/*zhuravlev alexander st129760
+    assigment 2b
+*/
 #include <iostream> 
 #include <sstream> 
 #include <string> 
