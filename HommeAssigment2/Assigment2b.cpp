@@ -5,57 +5,53 @@
 #include <sstream> 
 #include <string> 
  
+const int MAX_SIZE = 100; // Максимальный размер массива 
+ 
 int main() { 
     std::string input; 
-    std::getline(std::cin, input); 
+    std::getline(std::cin, input); // Считываем всю строку ввода 
  
-    const int MAX_SIZE = 100; // Максимальный размер стека 
-    int stack[MAX_SIZE];       // Массив для хранения элементов стека 
-    int top = -1;              // Индекс верхнего элемента стека 
-    std::istringstream stream(input); 
+    std::istringstream iss(input); 
+    double sp[MAX_SIZE]; // Массив для хранения чисел и результатов 
+    int size = 0; // Текущий размер массива 
+ 
     std::string token; 
- 
-    while (stream >> token) { 
+    while (iss >> token) { // Разделяем строку на токены 
         if (token != "+" && token != "-" && token != "*" && token != "/") { 
-            // Преобразование строки в целое число и добавление в стек 
-            if (top < MAX_SIZE - 1) { 
-                stack[++top] = std::stoi(token); 
+            if (size < MAX_SIZE) { 
+                sp[size++] = std::stod(token); // Добавляем число в массив 
             } else { 
-                std::cerr << "Stack overflow" << std::endl; 
-                return 1; 
+                std::cout << "Error: array size exceeded" << std::endl; 
+                return 1;  
             } 
         } else { 
-            // Проверка наличия достаточного количества элементов в стеке для выполнения операции 
-            if (top < 1) { 
-                std::cerr << "Not enough values in stack" << std::endl; 
-                return 1; 
+            if (size < 2) { 
+                std::cout << "Not enough operands" << std::endl; 
+                return 1; // Не хватает операндов 
             } 
- 
-            int b = stack[top--]; // Последний элемент 
-            int a = stack[top--]; // Предпоследний элемент 
+            double op1 = sp[size - 1]; 
+            double op2 = sp[size - 2]; 
+            size -= 2; // Удаляем два последних операнда 
  
             if (token == "+") { 
-                stack[++top] = a + b; 
+                sp[size++] = op2 + op1; 
             } else if (token == "-") { 
-                stack[++top] = a - b; 
+                sp[size++] = op2 - op1; 
             } else if (token == "*") { 
-                stack[++top] = a * b; 
+                sp[size++] = op2 * op1; 
             } else if (token == "/") { 
-                if (b == 0) { 
+                if (op1 == 0) { 
                     std::cout << "error" << std::endl; 
-                    return 1; // Завершение программы с ошибкой 
+                    return 1; // Ошибка деления на ноль 
                 } else { 
-                    stack[++top] = a / b; 
+                    sp[size++] = op2 / op1; 
                 } 
             } 
         } 
     } 
  
-    // Вывод результата 
-    if (top >= 0) { 
-        std::cout << stack[top] << std::endl; // Вывод верхнего элемента стека 
-    } else { 
-        std::cout << "Stack is empty" << std::endl; 
+    if (size > 0) { 
+        std::cout << sp[size - 1] << std::endl; // Выводим результат 
     } 
  
     return 0; 
