@@ -19,12 +19,16 @@ int main() {
     std::string token; 
     while (iss >> token) { // Разделяем строку на токены 
         if (token != "+" && token != "-" && token != "*" && token != "/") { 
-            if (size < lenght) { 
-                sp[size++] = std::stod(token); // Добавляем число в массив 
-            } else { 
-                std::cout << "Error: array size exceeded" << std::endl; 
-                return 1;  
-            } 
+            if (size == lenght) {
+            	lenght *= 2; 
+                double* nsp = new double[lenght]; 
+                for (int i = 0; i < size; ++i) { 
+                    nsp[i] = sp[i]; 
+                } 
+                delete[] sp; // Освобождаем старый массив 
+                sp = nsp;
+                }
+            sp[size++] = std::stod(token); // Добавляем число в массив    
         } else { 
             if (size < 2) { 
                 std::cout << "Not enough operands" << std::endl; 
