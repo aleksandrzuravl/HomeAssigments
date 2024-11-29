@@ -7,10 +7,9 @@
 #define HELLO_h
 
 
-namespace prj2
-{
-    void func();
-}
+
+void func();
+
 #endif
 
 
