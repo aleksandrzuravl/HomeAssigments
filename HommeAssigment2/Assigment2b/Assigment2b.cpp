@@ -5,20 +5,21 @@
 #include <sstream> 
 #include <string> 
  
-const int MAX_SIZE = 100; // Максимальный размер массива 
+int MAX_SIZE = 100; // Максимальный размер массива 
  
 int main() { 
     std::string input; 
     std::getline(std::cin, input); // Считываем всю строку ввода 
  
     std::istringstream iss(input); 
-    double sp[MAX_SIZE]; // Массив для хранения чисел и результатов 
+    int lenght = 10;
+    double* sp = new double[lenght]; // Массив для хранения чисел и результатов 
     int size = 0; // Текущий размер массива 
  
     std::string token; 
     while (iss >> token) { // Разделяем строку на токены 
         if (token != "+" && token != "-" && token != "*" && token != "/") { 
-            if (size < MAX_SIZE) { 
+            if (size < lenght) { 
                 sp[size++] = std::stod(token); // Добавляем число в массив 
             } else { 
                 std::cout << "Error: array size exceeded" << std::endl; 
