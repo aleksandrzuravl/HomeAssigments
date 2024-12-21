@@ -18,13 +18,13 @@ TEST(TransformerTest, FireWeapon)
 {
     Transformer transformer;
     transformer.fire();
-    EXPECT_EQ(transformer.getAmmo(), 5);
+    EXPECT_EQ(transformer.getAmmo(), 4);
 }
 
 
 
 
-// Test for class Weapon
+// Test for class Item
 TEST(ItemTest, ITEM)
 {
     Item item(false, true, false);
