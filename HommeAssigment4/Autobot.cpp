@@ -1,8 +1,7 @@
 #include <iostream>
 #include "Autobot.h"
 #include "Decepticon.h"
-#include "Dinobot.h"
-#include "Ability.h"
+
 
 // Constructor Autobot
 Autobot::Autobot() : Transformer(), _good(100), _helping(true)
