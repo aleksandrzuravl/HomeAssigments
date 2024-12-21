@@ -1,10 +1,8 @@
 #include <gtest/gtest.h>
-#include "Class_Transformer.h"
-#include "Class_Autobot.h"
-#include "Class_Decepticon.h"
-#include "Class_Dinobot.h"
-#include "Class_Ability.h"
-#include "Class_Weapon.h"
+#include "Transformer.h"
+#include "Autobot.h"
+#include "Decepticon.h"
+#include "Item.h"
 
 // Tests for class Transformer
 TEST(TransformerTest, InitialValues) {
@@ -24,10 +22,11 @@ TEST(TransformerTest, FireWeapon) {
 }
 
 // Test for class item
-TEST(WeaponTest, FireWeaponDecrease) {
-    Weapon weapon(false, true, false);
-    weapon.setPatron(weapon.getPatron() - 1); // .fire()
-    EXPECT_EQ(weapon.getPatron(), 4);
+TEST(ItemTest, ITEM)
+{
+    Item item(false, true, false);
+    item.setisgun(!item.getisgun()); //
+    EXPECT_EQ(item.getisgun(), true);
 }
 
 // Test for class Autobot
